@@ -1,0 +1,20 @@
+﻿@model IEnumerable<WebDevExam.Course>
+@{
+    ViewBag.Title = "Danh sách khóa học";
+}
+    <div class="col-md-12">
+        <div class="row d-flex justify-content-center" style="margin : 5%">
+            <center>
+                <form method="post" action="@Url.Action("ListEnrollment","Home")">
+                    <select name="CourseID" id="CourseID" class="form-control" style="margin-bottom ; 2%">
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.CourseID">@item.Title</option>
+                        }
+                    </select>
+                    <input style="margin-top: 3%;" class="btn btn-success" type="submit" value="Xem danh sách tuyển sinh" />
+                </form>
+                <a style="margin-top: 3%;" class="btn btn-primary" href="@Url.Action("Index","Course")"><i class="fas fa-list"></i>&nbsp;Quản lý khóa học</a>
+            </center>
+        </div>
+    </div>

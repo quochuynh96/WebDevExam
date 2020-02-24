@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebDevExam.Course>
+
+@{
+    ViewBag.Title = "Quản lý khóa học";
+}
+
+<h4>Danh sách khóa học</h4>
+
+<p>
+    @Html.ActionLink("Thêm khóa học mới", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credits)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credits)
+        </td>
+        <td>
+            @Html.ActionLink("Thay đổi thông tin", "Edit", new { id=item.CourseID }) |
+            @Html.ActionLink("Xóa khóa học", "Delete", new { id=item.CourseID })
+        </td>
+    </tr>
+}
+
+</table>
